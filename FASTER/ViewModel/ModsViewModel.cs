@@ -230,10 +230,14 @@ namespace FASTER.ViewModel
 
             Process.Start(startInfo);
         }
-        public void CheckForUpdates()
+        
+        public async Task CheckForUpdates()
         {
             foreach (ArmaMod mod in ModsCollection.ArmaMods)
-            { Task.Run(() => mod.UpdateInfos()); }
+            {
+                Task.Run(() => mod.UpdateInfos());
+                await Task.Delay(300); // Throttle to avoid API spamming
+            }
         }
 
         public async Task UpdateSelectedMods()

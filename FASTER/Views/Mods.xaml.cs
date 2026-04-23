@@ -72,9 +72,9 @@ namespace FASTER.Views
             await ((ModsViewModel)DataContext)?.OpenLauncherFile();
         }
 
-        private void CheckForUpdates_Click(object sender, RoutedEventArgs e)
+        private async void CheckForUpdates_Click(object sender, RoutedEventArgs e)
         {
-            ((ModsViewModel) DataContext)?.CheckForUpdates();
+            await ((ModsViewModel) DataContext)?.CheckForUpdates();
         }
 
         private void UpdateAll_Click(object sender, RoutedEventArgs e)
